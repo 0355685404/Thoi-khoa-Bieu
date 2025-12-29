@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giới thiệu của chúng tôi</title>
+</head>
+<body>
+
+    <h2>GIỚI THIỆU CỦA CHÚNG TÔI</h2>
+
+    <p><strong>Tên:</strong> Hồ Nguyễn Gia Bảo và Trịnh Tuấn Anh</p>
+    <p><strong>Tuổi:</strong> 17 tuổi</p>
+    <p><strong>Lớp:</strong> 12A9</p>
+
+    <p><strong>Giới thiệu bản thân:</strong><br>
+        Thích đọc sách, chơi game, ăn uống, học bài, coi phim.
+    </p>
+
+    <br>
+    <a href="index.html">⬅ Quay lại trang chính</a>
+
+</body>
+</html>
