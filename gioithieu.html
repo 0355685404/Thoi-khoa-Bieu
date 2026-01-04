@@ -3,150 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Profile</title>
+    <title>Giới Thiệu Thành Viên</title>
     <style>
+        /* Cấu hình chung: Font chữ có chân, màu đen */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            font-family: "Times New Roman", Times, serif;
+            margin: 40px; /* Căn lề rộng rãi như trang giấy A4 */
+            line-height: 1.6;
+            color: black;
+            background-color: white;
         }
 
         h1 {
+            text-align: center;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #fff;
+            font-size: 24px;
             margin-bottom: 40px;
-            border-bottom: 2px solid #555;
-            padding-bottom: 10px;
+            text-decoration: underline; /* Gạch chân tiêu đề lớn */
         }
 
-        /* Container chứa 2 thẻ thành viên */
-        .team-container {
-            display: flex;
-            flex-wrap: wrap; /* Tự xuống dòng nếu màn hình nhỏ */
-            gap: 30px;
-            justify-content: center;
-            max-width: 1000px;
-        }
-
-        /* Thiết kế thẻ bài chung */
-        .member-card {
-            background: #1e1e1e;
-            width: 350px;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .member-card:hover {
-            transform: translateY(-10px);
-        }
-
-        /* --- TÙY BIẾN CHO GIA BẢO (Xanh - Điện) --- */
-        .card-bao {
-            border-top: 5px solid #00FFFF; /* Màu xanh Cyan */
-        }
-        .card-bao h2 { color: #00FFFF; }
-        .card-bao .icon { color: #00FFFF; }
-
-        /* --- TÙY BIẾN CHO TUẤN ANH (Cam - Nhựa) --- */
-        .card-tuananh {
-            border-top: 5px solid #FF6600; /* Màu Cam */
-        }
-        .card-tuananh h2 { color: #FF6600; }
-        .card-tuananh .icon { color: #FF6600; }
-
-        /* Nội dung bên trong */
-        h2 { margin-top: 0; font-size: 28px; }
-        .role { font-size: 14px; color: #888; text-transform: uppercase; margin-bottom: 20px; font-weight: bold;}
-        
-        .section-title {
+        h2 {
             font-size: 18px;
-            color: #fff;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #333;
+            text-transform: uppercase;
+            margin-top: 30px;
+            border-bottom: 1px solid black; /* Đường kẻ đen mảnh dưới tên */
             padding-bottom: 5px;
+            display: inline-block; /* Kẻ đường gạch chân vừa bằng độ dài tên */
         }
 
-        p { color: #ccc; font-size: 15px; line-height: 1.6; text-align: justify; }
-
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 8px; color: #bbb; }
-        
-        /* Icon trang trí */
-        .icon-symbol { margin-right: 8px; }
-
-        .btn-back {
-            margin-top: 50px;
-            color: #fff;
-            text-decoration: none;
-            border: 1px solid #fff;
-            padding: 10px 30px;
-            border-radius: 30px;
-            transition: 0.3s;
+        p {
+            text-align: justify; /* Căn đều 2 bên lề văn bản */
+            margin-bottom: 10px;
         }
-        .btn-back:hover { background: #fff; color: #000; }
 
+        /* Phần in đậm các từ khóa quan trọng */
+        strong {
+            font-weight: bold;
+        }
+
+        /* Đường kẻ ngang phân cách 2 người */
+        hr {
+            border: 0;
+            border-top: 1px solid black;
+            margin: 40px 0;
+        }
+
+        /* Nút quay lại đơn giản */
+        .nut-quay-lai {
+            display: inline-block;
+            margin-top: 30px;
+            color: black;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        /* Danh sách gạch đầu dòng */
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Hồ Sơ Thành Viên</h1>
+    <h1>Giới Thiệu Thành Viên Nhóm</h1>
 
-    <div class="team-container">
-        
-        <div class="member-card card-bao">
-            <h2>Hồ Nguyễn Gia Bảo</h2>
-            <div class="role">⚡ Kỹ Thuật Điện & Âm Nhạc</div>
-            
-            <p>
-                Xin chào, mình là Gia Bảo (17 tuổi). Mình là người <strong>năng động</strong>, ham học hỏi và luôn tò mò về thế giới công nghệ.
-            </p>
+    <section>
+        <h2>1. Hồ Nguyễn Gia Bảo (17 tuổi)</h2>
+        <p>
+            Mình là người có tính cách năng động, ham học hỏi. Ngoài giờ học, mình thường <strong>nghe nhạc</strong> để thư giãn.
+        </p>
+        <p>
+            Đam mê lớn nhất của mình là <strong>nghiên cứu đồ điện</strong>, từ các thiết bị dân dụng đến những mạch điện cơ bản. 
+            Việc tìm hiểu cách hoạt động và sửa chữa đồ điện giúp mình rèn luyện:
+        </p>
+        <ul>
+            <li>Tư duy logic.</li>
+            <li>Tính cẩn thận và tỉ mỉ.</li>
+            <li>Nuôi dưỡng đam mê theo đuổi lĩnh vực Kỹ thuật trong tương lai.</li>
+        </ul>
+    </section>
 
-            <div class="section-title">Sở thích & Đam mê</div>
-            <ul>
-                <li><span class="icon-symbol">🎧</span><strong>Nghe nhạc:</strong> Thư giãn và tìm cảm hứng.</li>
-                <li><span class="icon-symbol">🛠️</span><strong>Nghiên cứu đồ điện:</strong> Từ thiết bị dân dụng đến mạch điện cơ bản.</li>
-            </ul>
+    <hr>
 
-            <div class="section-title">Điểm mạnh</div>
-            <p>
-                Việc sửa chữa đồ điện giúp mình rèn luyện <strong>tư duy logic</strong>, tính cẩn thận và nuôi dưỡng ước mơ trở thành Kỹ sư Kỹ thuật trong tương lai.
-            </p>
-        </div>
+    <section>
+        <h2>2. Trịnh Tuấn Anh (17 tuổi)</h2>
+        <p>
+            Mình là người khá điềm tĩnh, thích không gian yên tĩnh để làm việc tập trung và luôn cố gắng hoàn thiện bản thân từng chút một.
+        </p>
+        <p>
+            Sở thích đặc biệt của mình là:
+        </p>
+        <ul>
+            <li><strong>Xem phim:</strong> Giúp thư giãn và mở rộng góc nhìn cuộc sống.</li>
+            <li><strong>Chơi nhựa (Lắp ráp mô hình):</strong> Bộ môn sưu tầm và lắp ráp này giúp mình rèn luyện sự tỉ mỉ và kiên nhẫn cao độ.</li>
+        </ul>
+    </section>
 
-        <div class="member-card card-tuananh">
-            <h2>Trịnh Tuấn Anh</h2>
-            <div class="role">🤖 Mô Hình & Điện Ảnh</div>
-
-            <p>
-                Chào bạn, mình là Tuấn Anh (17 tuổi). Khác với sự sôi nổi, mình là người khá <strong>điềm tĩnh</strong> và thích không gian yên tĩnh để tập trung.
-            </p>
-
-            <div class="section-title">Sở thích & Đam mê</div>
-            <ul>
-                <li><span class="icon-symbol">🎬</span><strong>Xem phim:</strong> Mở rộng góc nhìn cuộc sống.</li>
-                <li><span class="icon-symbol">🤖</span><strong>Chơi nhựa (Mô hình):</strong> Sưu tầm và lắp ráp Gunpla/Figure.</li>
-            </ul>
-
-            <div class="section-title">Điểm mạnh</div>
-            <p>
-                Thú vui lắp ráp mô hình rèn luyện cho mình sự <strong>tỉ mỉ</strong> và <strong>kiên nhẫn</strong> tuyệt đối. Mình luôn cố gắng hoàn thiện bản thân từng chút một (Kaizen).
-            </p>
-        </div>
-
-    </div>
-
-    <a href="index.html" class="btn-back">← Quay lại Trang chủ</a>
+    <br>
+    <a href="index.html" class="nut-quay-lai">← Quay lại trang Bài tập</a>
 
 </body>
 </html>
