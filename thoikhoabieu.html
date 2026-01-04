@@ -3,81 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thời Khóa Biểu</title>
+    <title>Thời Khóa Biểu 12A9</title>
     <style>
         body {
             font-family: "Times New Roman", Times, serif;
-            margin: 40px;
-            line-height: 1.6;
-        }
-        h1 {
-            text-transform: uppercase;
-            text-align: center; /* Căn giữa tiêu đề cho đẹp */
-        }
-        
-        /* --- CSS CHO BẢNG (TABLE) --- */
-        table {
-            width: 100%;
-            border-collapse: collapse; /* Kẻ bảng liền mạch */
-            margin-top: 20px;
-        }
-        
-        th, td {
-            border: 1px solid black; /* Viền đen cho các ô */
-            padding: 10px;
-            text-align: center;
+            margin: 20px;
+            line-height: 1.4;
+            color: #000;
         }
 
+        h1, h2, h3 {
+            text-align: center;
+            text-transform: uppercase;
+            margin: 5px 0;
+        }
+        
+        h3 {
+            font-weight: normal;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* --- CSS CHO BẢNG --- */
+        .tieu-de-buoi {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-decoration: underline; /* Gạch chân chữ Buổi sáng/Chiều cho rõ */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 14px; /* Chữ trong bảng nhỏ gọn một chút */
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+            height: 30px; /* Chiều cao tối thiểu cho ô */
+        }
+
+        /* Tô màu xanh Cyan (#00FFFF) giống hệt trong ảnh */
         th {
-            background-color: #f2f2f2; /* Màu nền xám nhẹ cho tiêu đề cột */
+            background-color: #00FFFF;
             font-weight: bold;
         }
-        /* --------------------------- */
+
+        /* Tô màu xanh cho cột đầu tiên (Cột số thứ tự 1,2,3,4,5) */
+        td.cot-so-tiet {
+            background-color: #00FFFF;
+            font-weight: bold;
+            width: 30px;
+        }
 
         .nut-quay-lai {
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 20px;
             color: #0000EE;
             text-decoration: underline;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Thời Khóa Biểu Tuần Này</h1>
+    <h1>LỚP 12A9</h1>
+    <h3>Có tác dụng từ ngày 01/12/2025</h3>
 
+    <div class="tieu-de-buoi">Buổi sáng</div>
     <table>
         <thead>
             <tr>
-                <th>Buổi</th>
+                <th></th> <th>Thứ 2</th>
+                <th>Thứ 3</th>
+                <th>Thứ 4</th>
+                <th>Thứ 5</th>
+                <th>Thứ 6</th>
+                <th>Thứ 7</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="cot-so-tiet">1</td>
+                <td>HĐ TN</td>
+                <td>HOA</td>
+                <td>SU</td>
+                <td>ANH</td>
+                <td>HOA</td>
+                <td>TOAN ÔN THI</td>
+            </tr>
+            <tr>
+                <td class="cot-so-tiet">2</td>
+                <td>HĐ TN</td>
+                <td>ANH</td>
+                <td>SINH</td>
+                <td>TOAN</td>
+                <td>TN HN</td>
+                <td>TOAN ÔN THI</td>
+            </tr>
+            <tr>
+                <td class="cot-so-tiet">3</td>
+                <td>SINH</td>
+                <td>VAN</td>
+                <td>TOAN</td>
+                <td>LY</td>
+                <td>GD TC</td>
+                <td>VAN ÔN THI</td>
+            </tr>
+            <tr>
+                <td class="cot-so-tiet">4</td>
+                <td>LY</td>
+                <td>HOA</td>
+                <td>TOAN</td>
+                <td>GD ĐP</td>
+                <td>GD TC</td>
+                <td>VAN ÔN THI</td>
+            </tr>
+            <tr>
+                <td class="cot-so-tiet">5</td>
+                <td></td> <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="tieu-de-buoi">Buổi chiều</div>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
                 <th>Thứ 2</th>
                 <th>Thứ 3</th>
                 <th>Thứ 4</th>
                 <th>Thứ 5</th>
                 <th>Thứ 6</th>
+                <th>Thứ 7</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><strong>Sáng</strong></td>
-                <td>Toán</td>
-                <td>Văn</td>
-                <td>Anh</td>
-                <td>Lý</td>
-                <td>Hóa</td>
+                <td class="cot-so-tiet">1</td>
+                <td>LY</td>
+                <td>TC</td>
+                <td>TC-ÔNTHI</td>
+                <td>TOAN</td>
+                <td>GDQP AN</td>
+                <td></td>
             </tr>
             <tr>
-                <td><strong>Chiều</strong></td>
-                <td>Tin học</td>
-                <td>Thể dục</td>
-                <td>Sinh</td>
-                <td>Sử</td>
-                <td>Địa</td>
+                <td class="cot-so-tiet">2</td>
+                <td>TIN</td>
+                <td>TC</td>
+                <td>TC-ÔNTHI</td>
+                <td>TC</td>
+                <td>VAN</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="cot-so-tiet">3</td>
+                <td>TIN</td>
+                <td>ANH</td>
+                <td></td>
+                <td>TC</td>
+                <td>VAN</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="cot-so-tiet">4</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="cot-so-tiet">5</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
         </tbody>
     </table>
-    <br>
-    <p><i>*Ghi chú: Lịch có thể thay đổi vào tuần sau.</i></p>
 
     <hr>
     <a href="index.html" class="nut-quay-lai">← Quay lại trang Bài tập</a>
