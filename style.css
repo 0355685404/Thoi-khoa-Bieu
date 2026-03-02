@@ -1,1 +1,205 @@
-jsgfa
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Website Tin Học 12</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background: radial-gradient(circle at top, #1f1c2c, #0f0c29);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* KHUNG CHÍNH */
+.container{
+    width:1000px;
+    height:600px;
+    background:#111;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 0 40px rgba(0,255,255,0.3);
+    display:flex;
+    flex-direction:column;
+}
+
+/* ===== BANNER ===== */
+.banner{
+    height:120px;
+    background: linear-gradient(90deg, #00f5ff, #ff00c8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+/* CHỖ BẠN DÁN ẢNH BANNER */
+.banner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* PHẦN DƯỚI */
+.main{
+    flex:1;
+    display:flex;
+}
+
+/* MENU */
+.menu{
+    width:250px;
+    background:#0a0a0a;
+    padding-top:30px;
+    border-right:1px solid #222;
+}
+
+.menu a{
+    display:block;
+    padding:15px 25px;
+    color:#ccc;
+    text-decoration:none;
+    transition:0.3s;
+    position:relative;
+}
+
+.menu a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:3px;
+    background:#00f5ff;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    color:#00f5ff;
+    padding-left:35px;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* CONTENT */
+.content{
+    flex:1;
+    padding:40px;
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.glow{
+    animation: fadeGlow 0.5s ease;
+}
+
+@keyframes fadeGlow{
+    from{opacity:0; transform:translateY(15px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.content h2{
+    color:#00f5ff;
+    margin-bottom:20px;
+}
+
+.footer{
+    position:absolute;
+    bottom:15px;
+    right:25px;
+    font-size:14px;
+    color:#888;
+}
+</style>
+
+<script>
+function hienNoiDung(phan){
+    let noidung = "";
+
+    if(phan === "gioithieu"){
+        noidung = `
+        <div class="glow">
+            <h2>Giới thiệu</h2>
+            <p>Website được thiết kế theo phong cách futuristic.</p>
+            <p>Sử dụng HTML, CSS và JavaScript.</p>
+        </div>`;
+    }
+
+    if(phan === "tkb"){
+        noidung = `
+        <div class="glow">
+            <h2>Thời khóa biểu</h2>
+            <p>📌 Thứ 2: Tin học</p>
+            <p>📌 Thứ 4: Toán</p>
+            <p>📌 Thứ 6: Anh văn</p>
+        </div>`;
+    }
+
+    if(phan === "tinhoc12"){
+        noidung = `
+        <div class="glow">
+            <h2>Chương trình Tin 12</h2>
+            <p>⚡ HTML & CSS</p>
+            <p>⚡ JavaScript</p>
+            <p>⚡ Cơ sở dữ liệu</p>
+        </div>`;
+    }
+
+    document.getElementById("noidung").innerHTML = noidung;
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ===== BANNER ===== -->
+    <div class="banner">
+        <!-- DÁN ẢNH BANNER Ở ĐÂY -->
+        <!-- Ví dụ: -->
+        <!-- <img src="banner.jpg"> -->
+        TIN HỌC 12
+    </div>
+
+    <div class="main">
+
+        <div class="menu">
+            <a href="#" onclick="hienNoiDung('gioithieu')">Giới thiệu</a>
+            <a href="#" onclick="hienNoiDung('tkb')">Thời khóa biểu</a>
+            <a href="#" onclick="hienNoiDung('tinhoc12')">Chương trình Tin 12</a>
+        </div>
+
+        <div class="content" id="noidung">
+            <div class="glow">
+                <h2>Welcome 👾</h2>
+                <p>Chọn nội dung bên trái để xem thông tin.</p>
+            </div>
+            <div class="footer">
+                © 2026 - Designed by You
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
