@@ -94,6 +94,7 @@ body{
     padding:40px;
     color:white;
     position:relative;
+    overflow:auto;
 }
 
 .glow{
@@ -152,6 +153,18 @@ function hienNoiDung(phan){
         </div>`;
     }
 
+    if(phan === "nghenghiep"){
+        noidung = `
+        <div class="glow">
+            <h2>Giới thiệu nghề nghiệp</h2>
+            <p>💻 Lập trình viên (Web, App, Game)</p>
+            <p>🛡 Kỹ sư an ninh mạng</p>
+            <p>📊 Chuyên viên phân tích dữ liệu</p>
+            <p>🎨 Thiết kế đồ họa - UI/UX</p>
+            <p>🤖 Kỹ sư AI & Machine Learning</p>
+        </div>`;
+    }
+
     document.getElementById("noidung").innerHTML = noidung;
 }
 </script>
@@ -174,6 +187,7 @@ function hienNoiDung(phan){
             <a href="#" onclick="hienNoiDung('gioithieu')">Giới thiệu</a>
             <a href="#" onclick="hienNoiDung('tkb')">Thời khóa biểu</a>
             <a href="#" onclick="hienNoiDung('tinhoc12')">Chương trình Tin 12</a>
+            <a href="#" onclick="hienNoiDung('nghenghiep')">Giới thiệu nghề nghiệp</a>
         </div>
 
         <div class="content" id="noidung">
