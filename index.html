@@ -1,19 +1,137 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Tin Học 12 - Nhóm 7</title>
+    
+    <style>
+        /* --- CẤU HÌNH CHUNG --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: radial-gradient(circle at top, #1f1c2c, #0f0c29); height: 100vh; display: flex; justify-content: center; align-items: center; color: white; overflow: hidden; }
+
+        /* --- KHUNG CHÍNH --- */
+        .container { width: 1000px; height: 650px; background: #111; border-radius: 20px; overflow: hidden; box-shadow: 0 0 50px rgba(0, 255, 255, 0.2); display: flex; flex-direction: column; border: 1px solid #333; }
+
+        /* --- BANNER NEON & LOGO --- */
+        .banner { height: 130px; background: #000; display: flex; align-items: center; justify-content: center; position: relative; border-bottom: 3px solid #00f5ff; }
+        .logo-school { position: absolute; left: 40px; height: 90px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2)); }
+        .logo-school:hover { transform: scale(1.2) rotate(10deg); filter: drop-shadow(0 0 20px #00f5ff); }
+        
+        .banner-text { 
+            color: #00f5ff; font-size: 50px; font-weight: 900; letter-spacing: 10px; text-transform: uppercase; 
+            text-shadow: 0 0 5px #fff, 0 0 10px #00f5ff, 0 0 20px #00f5ff, 0 0 40px #ff0000;
+            animation: neonFlicker 3s infinite;
+        }
+        @keyframes neonFlicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+            20%, 24%, 55% { opacity: 0.6; text-shadow: none; }
+        }
+
+        /* --- PHẦN THÂN --- */
+        .main { flex: 1; display: flex; }
+        .menu { width: 260px; background: #0a0a0a; padding-top: 30px; border-right: 1px solid #222; }
+        .menu a { display: block; padding: 18px 30px; color: #888; text-decoration: none; transition: 0.3s; position: relative; font-weight: 500; }
+        .menu a:hover { color: #00f5ff; background: rgba(0, 245, 255, 0.05); padding-left: 40px; }
+        .menu a:hover::before { content: "⚡"; position: absolute; left: 15px; }
+
+        /* --- NỘI DUNG --- */
+        .content { flex: 1; padding: 40px; background: #111; overflow-y: auto; }
+        .glow-box { animation: slideUp 0.6s ease-out; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        .content h2 { color: #00f5ff; font-size: 28px; margin-bottom: 20px; border-left: 5px solid #ff0000; padding-left: 15px; text-transform: uppercase; }
+        
+        /* --- KHUNG GIỚI THIỆU BẢN THÂN --- */
+        .personal-card { 
+            background: linear-gradient(145deg, rgba(0, 245, 255, 0.1), rgba(0, 0, 0, 0.5));
+            padding: 20px; border-radius: 15px; border: 1px solid #00f5ff; margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        .personal-card p { margin-bottom: 8px; font-size: 16px; }
+        .personal-card strong { color: #00f5ff; }
+
+        /* --- BẢNG THÀNH VIÊN --- */
+        .member-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .member-table th { background: #00f5ff; color: #000; padding: 12px; text-align: left; }
+        .member-table td { padding: 12px; border-bottom: 1px solid #222; color: #ddd; }
+        .member-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+
+        .footer { margin-top: 30px; font-size: 12px; color: #444; text-align: right; border-top: 1px solid #222; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
     <div class="container">
-      <div class="header"> </div>
-      <div class="menu">
-        <a href="Contents/Gioithieu.html" target="v1">giới thiệu </a>
-        <a href="Contents/thoikhoabieu.html" target="v1">thời khóa biểu </a>
-        <a href="Contents/tinhoc12.html" target="v1">Chương trình Tin học 12</a>
-      </div>
-      <div class="content"> </div>
-      <iframe name="v1"></iframe>
-      <div class="footer"> </div>
+        <div class="banner">
+            <img src="Messenger_creation_1DAD0243-B6CC-4698-96E6-F544206D9396.png" class="logo-school" alt="Logo">
+            <div class="banner-text">NHÓM 7</div>
+        </div>
+
+        <div class="main">
+            <div class="menu">
+                <a href="javascript:void(0)" onclick="hienNoiDung('gioithieu')">Giới thiệu dự án</a>
+                <a href="javascript:void(0)" onclick="hienNoiDung('banthan')">Giới thiệu bản thân</a>
+                <a href="javascript:void(0)" onclick="hienNoiDung('tkb')">Thời khóa biểu</a>
+                <a href="javascript:void(0)" onclick="hienNoiDung('tinhoc12')">Chương trình Tin 12</a>
+                <a href="javascript:void(0)" onclick="hienNoiDung('nghenghiep')">Định hướng nghề</a>
+            </div>
+
+            <div class="content" id="vung_hien_thi">
+                <div class="glow-box">
+                    <h2>Welcome 👾</h2>
+                    <p>Hệ thống thông tin học tập lớp 12 - Nhóm 7.</p>
+                    <p>Sử dụng menu bên trái để truy cập thông tin.</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </body>
+
+    <script>
+        function hienNoiDung(phan) {
+            let nd = "";
+            const v = document.getElementById("vung_hien_thi");
+
+            if (phan === 'gioithieu') {
+                nd = `<div class="glow-box"><h2>Dự án Tin học</h2><p>Website được thiết kế bởi Nhóm 7 nhằm mục đích học tập và thực hành các kiến thức lập trình web cơ bản trong chương trình Tin học 12.</p></div>`;
+            } 
+            
+            else if (phan === 'banthan') {
+                nd = `
+                <div class="glow-box">
+                    <h2>Giới thiệu bản thân</h2>
+                    <div class="personal-card">
+                        <p>👤 <strong>Họ và tên:</strong> [Điền tên bạn]</p>
+                        <p>🎂 <strong>Ngày sinh:</strong> [Ngày/Tháng/Năm]</p>
+                        <p>🏫 <strong>Lớp:</strong> 12... - THPT Ngô Quyền</p>
+                        <p>🛠️ <strong>Kỹ năng:</strong> HTML, CSS, JavaScript</p>
+                        <p>🎯 <strong>Mục tiêu:</strong> Hoàn thành xuất sắc dự án Tin học 12.</p>
+                    </div>
+                    
+                    <h2 style="font-size: 20px;">Danh sách Nhóm 7</h2>
+                    <table class="member-table">
+                        <tr><th>STT</th><th>Họ Tên</th><th>Nhiệm vụ</th></tr>
+                        <tr><td>01</td><td><b>[Điền tên bạn]</b></td><td>Nhóm trưởng</td></tr>
+                        <tr><td>02</td><td>Nguyễn Văn A</td><td>Thành viên</td></tr>
+                        <tr><td>03</td><td>Trần Thị B</td><td>Thành viên</td></tr>
+                    </table>
+                </div>`;
+            } 
+            
+            else if (phan === 'tkb') {
+                nd = `<div class="glow-box"><h2>Thời khóa biểu</h2><p>📅 <strong>Thứ 2:</strong> Tin học</p><p>📅 <strong>Thứ 4:</strong> Toán học</p></div>`;
+            } 
+            
+            else if (phan === 'tinhoc12') {
+                nd = `<div class="glow-box"><h2>Chương trình Tin 12</h2><p>Học về Hệ quản trị CSDL, mạng máy tính và lập trình web cơ bản.</p></div>`;
+            }
+
+            else if (phan === 'nghenghiep') {
+                nd = `<div class="glow-box"><h2>Định hướng nghề nghiệp</h2><p>Lập trình viên, Chuyên viên an ninh mạng, Thiết kế đồ họa...</p></div>`;
+            }
+
+            v.innerHTML = nd + '<div class="footer">© 2026 - Nhóm 7 THPT Ngô Quyền</div>';
+        }
+    </script>
+</body>
 </html>
