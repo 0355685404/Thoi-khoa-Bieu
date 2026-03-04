@@ -1,40 +1,248 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Website Tin Học 12</title>
+    <meta charset="UTF-8">
+    <title>Website Tin Học 12 - Nhóm 7</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-body{
-    background: radial-gradient(circle at top, #1f1c2c, #0f0c29);
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+        body {
+            background: radial-gradient(circle at top, #1f1c2c, #0f0c29);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
 
-/* KHUNG CHÍNH */
-.container{
-    width:1000px;
-    height:600px;
-    background:#111;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 0 40px rgba(0,255,255,0.3);
-    display:flex;
-    flex-direction:column;
-}
+        /* KHUNG CHÍNH */
+        .container {
+            width: 1000px;
+            height: 600px;
+            background: #111;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333;
+        }
 
-/* ===== BANNER ===== */
-.banner{
-    height:120px;
+        /* ===== BANNER ===== */
+        .banner {
+            height: 120px;
+            background: linear-gradient(90deg, #000000, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 2px solid #00f5ff;
+        }
+
+        .logo-school {
+            position: absolute;
+            left: 30px;
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+        }
+
+        .banner-text {
+            color: #00f5ff;
+            font-size: 45px;
+            font-weight: 900;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 0px #ff0000, 0 0 20px rgba(0, 245, 255, 0.6);
+        }
+
+        /* PHẦN DƯỚI */
+        .main {
+            flex: 1;
+            display: flex;
+        }
+
+        /* MENU */
+        .menu {
+            width: 250px;
+            background: #0a0a0a;
+            padding-top: 30px;
+            border-right: 1px solid #222;
+        }
+
+        .menu a {
+            display: block;
+            padding: 15px 25px;
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+            position: relative;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .menu a:hover {
+            color: #00f5ff;
+            background: rgba(0, 245, 255, 0.05);
+            padding-left: 35px;
+        }
+
+        .menu a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: #00f5ff;
+            transition: 0.3s;
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        /* CONTENT */
+        .content {
+            flex: 1;
+            padding: 40px;
+            position: relative;
+            overflow: auto;
+            background: #111;
+        }
+
+        .glow {
+            animation: fadeGlow 0.6s ease-out;
+        }
+
+        @keyframes fadeGlow {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content h2 {
+            color: #00f5ff;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .content p {
+            line-height: 1.8;
+            color: #ddd;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 15px;
+            right: 25px;
+            font-size: 13px;
+            color: #555;
+        }
+    </style>
+
+    <script>
+        function hienNoiDung(phan) {
+            let noidung = "";
+            const container = document.getElementById("noidung");
+
+            if (phan === "gioithieu") {
+                noidung = `
+                <div class="glow">
+                    <h2>Giới thiệu dự án</h2>
+                    <p>👋 Chào mừng bạn đến với sản phẩm của <strong>Nhóm 7</strong>.</p>
+                    <p>Website này được thiết kế nhằm tổng hợp kiến thức môn Tin học lớp 12.</p>
+                    <p>Công nghệ sử dụng: HTML, CSS và JavaScript thuần.</p>
+                </div>`;
+            }
+
+            if (phan === "banthan") {
+                noidung = `
+                <div class="glow">
+                    <h2>Giới thiệu bản thân</h2>
+                    <p>👤 <strong>Nhóm trưởng:</strong> [Tên của bạn]</p>
+                    <p>👥 <strong>Thành viên:</strong> Nguyễn Văn A, Trần Thị B...</p>
+                    <p>🏫 <strong>Lớp:</strong> 12 [Tên lớp] - THPT Ngô Quyền</p>
+                    <p>🎯 <strong>Sở thích:</strong> Lập trình, Đồ họa và khám phá công nghệ mới.</p>
+                </div>`;
+            }
+
+            if (phan === "tkb") {
+                noidung = `
+                <div class="glow">
+                    <h2>Thời khóa biểu</h2>
+                    <p>📅 <strong>Thứ 2:</strong> Tin học (Tiết 1-3)</p>
+                    <p>📅 <strong>Thứ 4:</strong> Toán học (Tiết 2-4)</p>
+                    <p>📅 <strong>Thứ 6:</strong> Anh văn (Tiết 1-2)</p>
+                </div>`;
+            }
+
+            if (phan === "tinhoc12") {
+                noidung = `
+                <div class="glow">
+                    <h2>Chương trình Tin 12</h2>
+                    <p>🔹 <strong>Cơ sở dữ liệu:</strong> Khái niệm cơ bản và SQL.</p>
+                    <p>🔹 <strong>Mạng máy tính:</strong> Giao thức và bảo mật.</p>
+                    <p>🔹 <strong>Giải thuật:</strong> Các bài toán tư duy lập trình.</p>
+                </div>`;
+            }
+
+            if (phan === "nghenghiep") {
+                noidung = `
+                <div class="glow">
+                    <h2>Định hướng nghề nghiệp</h2>
+                    <p>💻 Lập trình viên Fullstack.</p>
+                    <p>🛡️ Chuyên gia bảo mật mạng.</p>
+                    <p>🎨 Chuyên viên thiết kế kỹ thuật số.</p>
+                </div>`;
+            }
+
+            container.innerHTML = noidung + '<div class="footer">© 2026 - Designed by Nhom 7 - THPT Ngo Quyen</div>';
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="banner">
+        <img src="Messenger_creation_1DAD0243-B6CC-4698-96E6-F544206D9396.png" class="logo-school" alt="Logo">
+        <div class="banner-text">NHÓM 7</div>
+    </div>
+
+    <div class="main">
+        <div class="menu">
+            <a href="javascript:void(0)" onclick="hienNoiDung('gioithieu')">Giới thiệu dự án</a>
+            <a href="javascript:void(0)" onclick="hienNoiDung('banthan')">Giới thiệu bản thân</a>
+            <a href="javascript:void(0)" onclick="hienNoiDung('tkb')">Thời khóa biểu</a>
+            <a href="javascript:void(0)" onclick="hienNoiDung('tinhoc12')">Chương trình Tin 12</a>
+            <a href="javascript:void(0)" onclick="hienNoiDung('nghenghiep')">Giới thiệu nghề nghiệp</a>
+        </div>
+
+        <div class="content" id="noidung">
+            <div class="glow">
+                <h2>Welcome 👾</h2>
+                <p>Vui lòng chọn các mục ở menu bên trái để khám phá thông tin Nhóm 7.</p>
+            </div>
+            <div class="footer">
+                © 2026 - Designed by Nhom 7 - THPT Ngo Quyen
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>    height:120px;
     background:black;
     overflow:hidden;
 }
