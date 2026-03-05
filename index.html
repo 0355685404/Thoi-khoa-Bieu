@@ -6,49 +6,65 @@
     <title>Website Tin Học 12 - Nhóm 7</title>
     
     <style>
-        /* --- CẤU HÌNH CHUNG --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Times New Roman', sans-serif; }
+        /* --- CẤU HÌNH CHUNG (Hệ Neon) --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background: radial-gradient(circle at top, #1f1c2c, #0f0c29); height: 100vh; display: flex; justify-content: center; align-items: center; color: white; overflow: hidden; }
 
         /* --- KHUNG CHÍNH --- */
-        .container { width: 1100px; height: 750px; background: #111; border-radius: 20px; overflow: hidden; box-shadow: 0 0 50px rgba(0, 255, 255, 0.2); display: flex; flex-direction: column; border: 1px solid #333; }
+        .container { width: 1100px; height: 750px; background: #111; border-radius: 20px; overflow: hidden; box-shadow: 0 0 50px rgba(0, 245, 255, 0.2); display: flex; flex-direction: column; border: 1px solid #333; }
 
         /* --- BANNER --- */
         .banner { height: 130px; background: #000; display: flex; align-items: center; justify-content: center; position: relative; border-bottom: 3px solid #00f5ff; }
-        .logo-school { position: absolute; left: 40px; height: 90px; transition: all 0.4s; cursor: pointer; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2)); }
-        .logo-school:hover { transform: scale(1.1); filter: drop-shadow(0 0 20px #00f5ff); }
-        .banner-text { color: #00f5ff; font-size: 50px; font-weight: 900; letter-spacing: 10px; text-transform: uppercase; text-shadow: 0 0 10px #00f5ff; }
+        .logo-school { position: absolute; left: 40px; height: 90px; width: auto; transition: 0.4s; filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); }
+        .logo-school:hover { transform: scale(1.1) rotate(5deg); filter: drop-shadow(0 0 15px #00f5ff); }
+        .banner-text { color: #00f5ff; font-size: 50px; font-weight: 900; letter-spacing: 10px; text-transform: uppercase; text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff; }
 
         /* --- PHẦN THÂN --- */
         .main { flex: 1; display: flex; overflow: hidden; }
         .menu { width: 260px; background: #0a0a0a; padding-top: 30px; border-right: 1px solid #222; }
-        .menu a { display: block; padding: 18px 30px; color: #888; text-decoration: none; transition: 0.3s; font-weight: 500; }
-        .menu a:hover { color: #00f5ff; background: rgba(0, 245, 255, 0.05); padding-left: 40px; }
+        .menu a { display: block; padding: 18px 30px; color: #888; text-decoration: none; transition: 0.3s; font-weight: 500; font-size: 16px; border-left: 3px solid transparent; }
+        .menu a:hover { color: #00f5ff; background: rgba(0, 245, 255, 0.05); padding-left: 40px; border-left: 3px solid #00f5ff; }
 
-        /* --- VÙNG HIỂN THỊ NỘI DUNG --- */
-        .content { flex: 1; padding: 40px; background: #111; overflow-y: auto; color: #ddd; }
+        /* --- VÙNG HIỂN THỊ NỘI DUNG (Đã fix lệch) --- */
+        .content { flex: 1; padding: 40px; background: #111; overflow-y: auto; scroll-behavior: smooth; }
         
-        /* CSS Hỗ trợ hiển thị bảng và nội dung từ các trang con */
-        .glow-box { animation: slideUp 0.5s ease-out; }
+        /* Hiệu ứng mượt khi đổi nội dung */
+        .glow-box { animation: slideUp 0.5s ease-out; color: #ddd; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: rgba(255, 255, 255, 0.05); }
-        th, td { border: 1px solid #444; padding: 10px; text-align: center; }
-        th { background: #00f5ff; color: #000; }
-        .tieu-de-buoi { color: #00f5ff; font-weight: bold; margin-top: 20px; border-left: 4px solid #ff0000; padding-left: 10px; }
+        /* Style cho Tiêu đề các trang con */
+        .content h1 { color: #00f5ff; text-transform: uppercase; margin-bottom: 25px; border-left: 5px solid #ff0000; padding-left: 15px; font-size: 24px; }
+        .content h2 { color: #00f5ff; font-size: 20px; margin: 20px 0 10px 0; display: block; }
         
-        .personal-section { margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 20px; }
-        .personal-section h2 { color: #00f5ff; margin-bottom: 10px; }
-        .link-them { color: #ff0000; text-decoration: underline; }
-        
-        .footer { margin-top: 40px; font-size: 12px; color: #555; text-align: right; border-top: 1px solid #222; padding-top: 10px; }
+        /* Style cho Bảng (Thời khóa biểu) - Đã fix gọn gàng */
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; background: rgba(255, 255, 255, 0.02); }
+        th, td { border: 1px solid #333; padding: 12px 8px; text-align: center; }
+        th { background: #00f5ff; color: #000; font-weight: bold; text-transform: uppercase; }
+        tr:hover { background: rgba(0, 245, 255, 0.05); }
+        .tieu-de-buoi { color: #ff0000; font-weight: bold; margin-top: 25px; font-size: 18px; text-transform: uppercase; }
+
+        /* Style cho Giới thiệu & Nghề nghiệp */
+        .card { background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 10px; border: 1px solid #222; margin-bottom: 20px; }
+        .card strong { color: #00f5ff; }
+        .link-them { color: #00f5ff; text-decoration: none; font-style: italic; border-bottom: 1px dashed #00f5ff; transition: 0.3s; }
+        .link-them:hover { color: #ff0000; border-bottom: 1px dashed #ff0000; }
+        ul { margin-left: 20px; margin-top: 10px; }
+        li { margin-bottom: 5px; }
+
+        /* Tùy chỉnh thanh cuộn cho đẹp */
+        .content::-webkit-scrollbar { width: 8px; }
+        .content::-webkit-scrollbar-track { background: #0a0a0a; }
+        .content::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        .content::-webkit-scrollbar-thumb:hover { background: #00f5ff; }
+
+        .footer { margin-top: 40px; font-size: 12px; color: #444; text-align: right; border-top: 1px solid #222; padding-top: 15px; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="banner">
-            <img src="OIP (2).webp" class="logo-school" alt="Logo">
+            <img src="OIP (2).webp" class="logo-school" alt="Logo THPT Ngô Quyền">
             <div class="banner-text">NHÓM 7</div>
         </div>
 
@@ -62,9 +78,12 @@
 
             <div class="content" id="vung_hien_thi">
                 <div class="glow-box">
-                    <h1 style="color: #00f5ff;">WELCOME 👾</h1>
-                    <p style="margin-top: 20px;">Chào mừng thầy/cô và các bạn đến với sản phẩm của Nhóm 7 - Lớp 12A9.</p>
-                    <p>Vui lòng chọn các mục ở menu bên trái để xem chi tiết.</p>
+                    <h1>WELCOME 👾</h1>
+                    <p style="font-size: 18px; line-height: 1.8;">
+                        Chào mừng thầy/cô và các bạn đến với sản phẩm của <strong>Nhóm 7 - Lớp 12A9</strong>.<br>
+                        Hệ thống thông tin học tập được thiết kế trên nền tảng HTML/CSS/JS.
+                    </p>
+                    <p style="margin-top: 15px; color: #888;">Vui lòng chọn các mục ở menu bên trái để xem chi tiết thông tin nhóm.</p>
                 </div>
             </div>
         </div>
@@ -78,61 +97,87 @@
             if (phan === 'gioithieu') {
                 nd = `
                 <div class="glow-box">
-                    <h1 style="text-align:center; color:#00f5ff; text-decoration:underline;">GIỚI THIỆU THÀNH VIÊN</h1>
-                    <div class="personal-section">
+                    <h1>GIỚI THIỆU THÀNH VIÊN</h1>
+                    <div class="card">
                         <h2>1. Hồ Nguyễn Gia Bảo (17 tuổi)</h2>
-                        <p>Tính cách năng động, ham học hỏi. Đam mê <strong>nghiên cứu đồ điện</strong> và kỹ thuật.</p>
-                        <ul><li>Tư duy logic</li><li>Tỉ mỉ, cẩn thận</li></ul>
+                        <p>Tính cách năng động, ham học hỏi. Đam mê <strong>nghiên cứu đồ điện</strong>, từ các thiết bị dân dụng đến mạch điện cơ bản.</p>
+                        <ul>
+                            <li>Tư duy logic sắc bén.</li>
+                            <li>Tính cẩn thận và tỉ mỉ trong công việc.</li>
+                            <li>Định hướng theo đuổi lĩnh vực Kỹ thuật.</li>
+                        </ul>
                     </div>
-                    <div class="personal-section">
+                    <div class="card">
                         <h2>2. Trịnh Tuấn Anh (17 tuổi)</h2>
-                        <p>Điềm tĩnh, thích sáng tạo. Sở thích: <strong>Xem phim</strong> và <strong>Lắp ráp mô hình (Chơi nhựa)</strong>.</p>
-                        <ul><li>Rèn luyện kiên nhẫn</li><li>Tư duy hình khối</li></ul>
+                        <p>Người điềm tĩnh, thích không gian yên tĩnh để tập trung. Sở thích: <strong>Xem phim</strong> và <strong>Lắp ráp mô hình (Chơi nhựa)</strong>.</p>
+                        <ul>
+                            <li>Rèn luyện sự kiên nhẫn cao độ.</li>
+                            <li>Tư duy hình khối không gian tốt.</li>
+                            <li>Yêu thích sự sáng tạo và chế tác.</li>
+                        </ul>
                     </div>
                 </div>`;
             } 
             
-            else if (phan === 'tkb' || phan === 'tinhoc12') {
+            else if (phan === 'tkb') {
                 nd = `
                 <div class="glow-box">
-                    <h1 style="color:#00f5ff; text-align:center;">THỜI KHÓA BIỂU 12A9</h1>
-                    <p style="text-align:center;">Áp dụng từ 01/12/2025</p>
-                    <div class="tieu-de-buoi">Buổi sáng</div>
+                    <h1>THỜI KHÓA BIỂU 12A9</h1>
+                    <p>📅 <em>Áp dụng từ ngày 01/12/2025</em></p>
+                    
+                    <div class="tieu-de-buoi">☀️ Buổi sáng</div>
                     <table>
-                        <tr><th>Tiet</th><th>T2</th><th>T3</th><th>T4</th><th>T5</th><th>T6</th><th>T7</th></tr>
+                        <tr><th>Tiết</th><th>Thứ 2</th><th>Thứ 3</th><th>Thứ 4</th><th>Thứ 5</th><th>Thứ 6</th><th>Thứ 7</th></tr>
                         <tr><td>1</td><td>HĐ TN</td><td>HÓA</td><td>SỬ</td><td>ANH</td><td>HÓA</td><td>TOÁN ÔN</td></tr>
                         <tr><td>2</td><td>HĐ TN</td><td>ANH</td><td>SINH</td><td>TOÁN</td><td>TN HN</td><td>TOÁN ÔN</td></tr>
                         <tr><td>3</td><td>SINH</td><td>VĂN</td><td>TOÁN</td><td>LÝ</td><td>GD TC</td><td>VĂN ÔN</td></tr>
                         <tr><td>4</td><td>LÝ</td><td>HÓA</td><td>TOÁN</td><td>GD ĐP</td><td>GD TC</td><td>VĂN ÔN</td></tr>
                     </table>
-                    <div class="tieu-de-buoi">Buổi chiều</div>
+
+                    <div class="tieu-de-buoi">🌙 Buổi chiều</div>
                     <table>
-                        <tr><th>Tiet</th><th>T2</th><th>T3</th><th>T4</th><th>T5</th><th>T6</th></tr>
-                        <tr><td>1</td><td>LÝ</td><td>TC</td><td>TC-ÔN</td><td>TOÁN</td><td>GDQP</td></tr>
-                        <tr><td>2</td><td>TIN</td><td>TC</td><td>TC-ÔN</td><td>TC</td><td>VĂN</td></tr>
-                        <tr><td>3</td><td>TIN</td><td>ANH</td><td>-</td><td>TC</td><td>VĂN</td></tr>
+                        <tr><th>Tiết</th><th>Thứ 2</th><th>Thứ 3</th><th>Thứ 4</th><th>Thứ 5</th><th>Thứ 6</th><th>Thứ 7</th></tr>
+                        <tr><td>1</td><td>LÝ</td><td>TC</td><td>TC-ÔN</td><td>TOÁN</td><td>GDQP</td><td>-</td></tr>
+                        <tr><td>2</td><td>TIN</td><td>TC</td><td>TC-ÔN</td><td>TC</td><td>VĂN</td><td>-</td></tr>
+                        <tr><td>3</td><td>TIN</td><td>ANH</td><td>-</td><td>TC</td><td>VĂN</td><td>-</td></tr>
                     </table>
+                </div>`;
+            }
+
+            else if (phan === 'tinhoc12') {
+                nd = `
+                <div class="glow-box">
+                    <h1>CHƯƠNG TRÌNH TIN HỌC 12</h1>
+                    <div class="card">
+                        <p>Nội dung trọng tâm năm học 2025 - 2026:</p>
+                        <ul>
+                            <li><strong>Chủ đề F:</strong> Giải quyết vấn đề với sự trợ giúp của máy tính.</li>
+                            <li><strong>Lập trình Web:</strong> Làm quen với HTML, CSS và JavaScript cơ bản (Dự án này là một ví dụ).</li>
+                            <li><strong>Cơ sở dữ liệu:</strong> Tìm hiểu về hệ quản trị CSDL SQL.</li>
+                            <li><strong>Hướng nghiệp:</strong> Tìm hiểu các nhóm nghề trong lĩnh vực Tin học.</li>
+                        </ul>
+                    </div>
                 </div>`;
             }
 
             else if (phan === 'nghenghiep') {
                 nd = `
                 <div class="glow-box">
-                    <h1 style="color:#00f5ff; text-align:center;">ĐỊNH HƯỚNG NGHỀ NGHIỆP</h1>
-                    <div class="personal-section">
-                        <h2>1. Hồ Nguyễn Gia Bảo - Kỹ thuật</h2>
-                        <p>Hướng tới các ngành: Kỹ thuật Điện, Tự động hóa, Cơ điện tử.</p>
-                        <a href="https://hieuveban.ueh.edu.vn/ket-qua-holland/5b029c6a-7ad8-4eab-1040-08de52afccee" class="link-them" target="_blank">Xem kết quả Holland của Bảo</a>
+                    <h1>ĐỊNH HƯỚNG NGHỀ NGHIỆP</h1>
+                    <div class="card">
+                        <h2>1. Hồ Nguyễn Gia Bảo - Lĩnh vực Kỹ thuật</h2>
+                        <p>Định hướng phát triển trong các ngành: <strong>Kỹ thuật Điện - Điện tử</strong>, <strong>Tự động hóa</strong> hoặc <strong>Cơ điện tử</strong>.</p>
+                        <a href="https://hieuveban.ueh.edu.vn/ket-qua-holland/5b029c6a-7ad8-4eab-1040-08de52afccee" class="link-them" target="_blank">🔗 Xem kết quả trắc nghiệm Holland</a>
                     </div>
-                    <div class="personal-section">
-                        <h2>2. Trịnh Tuấn Anh - Sáng tạo & Thiết kế</h2>
-                        <p>Hướng tới các ngành: Thiết kế đồ họa, 3D, Kiến trúc.</p>
-                        <a href="https://hieuveban.ueh.edu.vn/ket-qua-holland/f7352255-878a-4756-103d-08de52afccee" class="link-them" target="_blank">Xem kết quả Holland của Tuấn Anh</a>
+                    <div class="card">
+                        <h2>2. Trịnh Tuấn Anh - Lĩnh vực Sáng tạo</h2>
+                        <p>Định hướng phù hợp với: <strong>Thiết kế đồ họa / 3D</strong>, <strong>Kiến trúc</strong> hoặc <strong>Công nghiệp chế tác mô hình</strong>.</p>
+                        <a href="https://hieuveban.ueh.edu.vn/ket-qua-holland/f7352255-878a-4756-103d-08de52afccee" class="link-them" target="_blank">🔗 Xem kết quả trắc nghiệm Holland</a>
                     </div>
                 </div>`;
             }
 
-            v.innerHTML = nd + '<div class="footer">© 2026 - Nhóm 7 THPT Ngô Quyền</div>';
+            v.innerHTML = nd + '<div class="footer">© 2026 - Nhóm 7 THPT Ngô Quyền | Lớp 12A9</div>';
         }
     </script>
 </body>
