@@ -9,83 +9,51 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background: radial-gradient(circle at top, #1f1c2c, #0f0c29); min-height: 100vh; display: flex; justify-content: center; align-items: center; color: white; overflow: hidden; padding: 10px; }
 
-        /* --- KHUNG CHÍNH --- */
         .container { 
-            width: 95%; 
-            max-width: 1100px; 
-            height: 90vh; 
-            background: #111; 
-            border-radius: 20px; 
-            overflow: hidden; 
-            box-shadow: 0 0 50px rgba(0, 245, 255, 0.2); 
-            display: flex; 
-            flex-direction: column; 
-            border: 1px solid #333; 
+            width: 95%; max-width: 1100px; height: 90vh; background: #111; 
+            border-radius: 20px; overflow: hidden; box-shadow: 0 0 50px rgba(0, 245, 255, 0.2); 
+            display: flex; flex-direction: column; border: 1px solid #333; 
         }
 
         /* --- BANNER --- */
         .banner { 
-            height: 130px; 
-            background: #000; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between;
-            padding: 0 40px;
-            position: relative; 
-            border-bottom: 3px solid #00f5ff; 
+            height: 130px; background: #000; display: flex; align-items: center; 
+            justify-content: space-between; padding: 0 40px; border-bottom: 3px solid #00f5ff; 
         }
-
-        .logo-school { 
-            height: 90px; 
-            width: auto; 
-            transition: 0.4s; 
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); 
-            flex-shrink: 0;
-        }
-        .logo-school:hover { transform: scale(1.1) rotate(5deg); filter: drop-shadow(0 0 15px #00f5ff); }
-
+        .logo-school { height: 90px; transition: 0.4s; filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); }
         .banner-text { 
-            color: #00f5ff; 
-            font-size: clamp(25px, 5vw, 50px); 
-            font-weight: 900; 
-            letter-spacing: 10px; 
-            text-transform: uppercase; 
-            text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff; 
-            flex-grow: 1;
-            text-align: center;
+            color: #00f5ff; font-size: clamp(25px, 5vw, 50px); font-weight: 900; 
+            letter-spacing: 10px; text-transform: uppercase; text-shadow: 0 0 10px #00f5ff; 
         }
-        .banner::after { content: ""; width: 90px; flex-shrink: 0; } 
 
         /* --- PHẦN THÂN --- */
         .main { flex: 1; display: flex; overflow: hidden; }
         .menu { width: 260px; background: #0a0a0a; padding-top: 30px; border-right: 1px solid #222; flex-shrink: 0; }
-        .menu a { display: block; padding: 18px 30px; color: #888; text-decoration: none; transition: 0.3s; font-weight: 500; font-size: 16px; border-left: 3px solid transparent; }
+        .menu a { display: block; padding: 18px 30px; color: #888; text-decoration: none; transition: 0.3s; font-weight: 500; border-left: 3px solid transparent; cursor: pointer; }
         .menu a:hover { color: #00f5ff; background: rgba(0, 245, 255, 0.05); padding-left: 40px; border-left: 3px solid #00f5ff; }
 
-        /* --- VÙNG HIỂN THỊ NỘI DUNG --- */
+        /* --- NỘI DUNG --- */
         .content { flex: 1; padding: 40px; background: #111; overflow-y: auto; scroll-behavior: smooth; }
-        .glow-box { animation: slideUp 0.5s ease-out; color: #ddd; }
+        .glow-box { animation: slideUp 0.5s ease-out; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .content h1 { color: #00f5ff; text-transform: uppercase; margin-bottom: 25px; border-left: 5px solid #ff0000; padding-left: 15px; font-size: 24px; }
-        .content h2 { color: #00f5ff; font-size: 20px; margin: 20px 0 10px 0; display: block; }
-        
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; background: rgba(255, 255, 255, 0.02); }
-        th, td { border: 1px solid #333; padding: 12px 8px; text-align: center; }
-        th { background: #00f5ff; color: #000; font-weight: bold; text-transform: uppercase; }
-        tr:hover { background: rgba(0, 245, 255, 0.05); }
+        .card { background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 12px; border: 1px solid #222; margin-bottom: 20px; }
+        h1 { color: #00f5ff; text-transform: uppercase; margin-bottom: 20px; border-left: 5px solid #ff0000; padding-left: 15px; }
+        h3 { color: #00f5ff; margin: 15px 0; border-bottom: 1px solid #333; padding-bottom: 5px; }
 
-        .card { background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 10px; border: 1px solid #222; margin-bottom: 20px; }
-        .card strong { color: #00f5ff; }
-        
-        /* Style cho Form Đăng ký */
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; color: #00f5ff; }
-        .form-group input[type="text"], .form-group input[type="email"] { 
-            width: 100%; padding: 10px; background: #222; border: 1px solid #444; color: white; border-radius: 5px; 
+        /* Style Form Neon */
+        input[type="text"], input[type="email"], textarea {
+            width: 100%; margin-top: 5px; padding: 10px; background: #222; 
+            border: 1px solid #444; color: white; border-radius: 5px; margin-bottom: 15px;
         }
-        .btn-submit { background: #ff0000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .btn-submit:hover { background: #cc0000; box-shadow: 0 0 15px #ff0000; }
+        .checkbox-item { display: flex; align-items: center; margin-bottom: 10px; cursor: pointer; color: #bbb; }
+        .checkbox-item input { margin-right: 10px; }
+        
+        .btn-neon {
+            width: 100%; padding: 12px; background: transparent; border: 2px solid #00f5ff; 
+            color: #00f5ff; font-weight: bold; cursor: pointer; transition: 0.3s; text-transform: uppercase;
+        }
+        .btn-neon:hover { background: #00f5ff; color: #000; box-shadow: 0 0 20px #00f5ff; }
 
         .footer { margin-top: 40px; font-size: 12px; color: #444; text-align: right; border-top: 1px solid #222; padding-top: 15px; }
     </style>
@@ -94,27 +62,25 @@
 
     <div class="container">
         <div class="banner">
-            <img src="https://tse2.mm.bing.net/th/id/OIP.uL3K8bRQQ6oQJuWJBlbyVgAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" class="logo-school" alt="Logo THPT Ngô Quyền">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.uL3K8bRQQ6oQJuWJBlbyVgAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" class="logo-school" alt="Logo">
             <div class="banner-text">NHÓM 7</div>
+            <div style="width:90px"></div>
         </div>
 
         <div class="main">
             <div class="menu">
-                <a href="#" onclick="hienNoiDung('gioithieu')">Giới thiệu thành viên</a>
-                <a href="#" onclick="hienNoiDung('tkb')">Thời khóa biểu</a>
-                <a href="#" onclick="hienNoiDung('tinhoc12')">Chương trình Tin 12</a>
-                <a href="#" onclick="hienNoiDung('nghenghiep')">Định hướng nghề nghiệp</a>
-                <a href="#" onclick="hienNoiDung('hoithao')">Đăng ký hội thao</a>
+                <a onclick="hienNoiDung('gioithieu')">Giới thiệu thành viên</a>
+                <a onclick="hienNoiDung('tkb')">Thời khóa biểu</a>
+                <a onclick="hienNoiDung('tinhoc12')">Chương trình Tin 12</a>
+                <a onclick="hienNoiDung('nghenghiep')">Định hướng nghề nghiệp</a>
+                <a onclick="hienNoiDung('hoithao')">Đăng ký hội thao</a>
+                <a onclick="hienNoiDung('gopy')">Góp ý thư viện</a>
             </div>
 
             <div class="content" id="vung_hien_thi">
                 <div class="glow-box">
                     <h1>WELCOME 👾</h1>
-                    <p style="font-size: 18px; line-height: 1.8;">
-                        Chào mừng thầy/cô và các bạn đến với sản phẩm của <strong>Nhóm 7 - Lớp 12A9</strong>.<br>
-                        Hệ thống thông tin học tập được thiết kế trên nền tảng HTML/CSS/JS.
-                    </p>
-                    <p style="margin-top: 15px; color: #888;">Vui lòng chọn các mục ở menu bên trái để xem chi tiết thông tin nhóm.</p>
+                    <p>Vui lòng chọn các mục ở menu để xem chi tiết.</p>
                 </div>
             </div>
         </div>
@@ -126,64 +92,54 @@
             const v = document.getElementById("vung_hien_thi");
 
             if (phan === 'gioithieu') {
-                nd = `
-                <div class="glow-box">
-                    <h1>GIỚI THIỆU THÀNH VIÊN</h1>
-                    <div class="card">
-                        <h2>1. Hồ Nguyễn Gia Bảo (17 tuổi)</h2>
-                        <p>Tính cách năng động, ham học hỏi. Đam mê <strong>nghiên cứu đồ điện</strong>...</p>
-                    </div>
-                    <div class="card">
-                        <h2>2. Trịnh Tuấn Anh (17 tuổi)</h2>
-                        <p>Người điềm tĩnh, thích không gian yên tĩnh...</p>
-                    </div>
-                </div>`;
+                nd = `<div class="glow-box"><h1>GIỚI THIỆU THÀNH VIÊN</h1><div class="card">Thông tin thành viên nhóm 7...</div></div>`;
             } 
-            
-            else if (phan === 'tkb') {
-                nd = `<div class="glow-box"><h1>THỜI KHÓA BIỂU 12A9</h1>...</div>`; // (Giữ nguyên phần bảng của bạn)
-            }
-
-            else if (phan === 'tinhoc12') {
-                nd = `<div class="glow-box"><h1>CHƯƠNG TRÌNH TIN HỌC 12</h1>...</div>`; 
-            }
-
-            else if (phan === 'nghenghiep') {
-                nd = `<div class="glow-box"><h1>ĐỊNH HƯỚNG NGHỀ NGHIỆP</h1>...</div>`;
-            }
-
-            // --- PHẦN GÁN MỚI: ĐĂNG KÝ HỘI THAO ---
             else if (phan === 'hoithao') {
+                nd = `<div class="glow-box"><h1>ĐĂNG KÝ HỘI THAO</h1><div class="card">Form đăng ký hội thao tại đây...</div></div>`;
+            }
+            // --- PHẦN GÓP Ý THƯ VIỆN ĐÃ TÍCH HỢP ---
+            else if (phan === 'gopy') {
                 nd = `
-                <div class="glow-box">
-                    <h1>ĐĂNG KÝ THAM GIA HỘI THAO</h1>
+                <div class="glow-box" id="formGopY">
+                    <h1>GÓP Ý THƯ VIỆN</h1>
                     <div class="card">
-                        <div class="form-group">
+                        <form onsubmit="guiGopY(event)">
+                            <h3>1. Thông tin người góp ý</h3>
                             <label>Họ và tên:</label>
-                            <input type="text" placeholder="Nhập tên của bạn...">
-                        </div>
-                        <div class="form-group">
-                            <label>Địa chỉ email:</label>
-                            <input type="email" placeholder="example@gmail.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Lớp:</label>
-                            <input type="radio" name="g" id="r10"> Lớp 10 &nbsp;
-                            <input type="radio" name="g" id="r11"> Lớp 11 &nbsp;
-                            <input type="radio" name="g" id="r12"> Lớp 12
-                        </div>
-                        <div class="form-group">
-                            <label>Môn thi đấu:</label>
-                            <input type="checkbox"> Bóng bàn <br>
-                            <input type="checkbox"> Cầu lông <br>
-                            <input type="checkbox"> Cờ vua
-                        </div>
-                        <button class="btn-submit">GỬI ĐĂNG KÝ</button>
+                            <input type="text" required placeholder="Nguyễn Văn A">
+                            <label>Email:</label>
+                            <input type="email" required placeholder="email@vi-du.com">
+
+                            <h3>2. Nội dung đóng góp</h3>
+                            <p style="margin-bottom:10px; color:#00f5ff">Thể loại cần bổ sung:</p>
+                            <label class="checkbox-item"><input type="checkbox"> Truyện ngắn</label>
+                            <label class="checkbox-item"><input type="checkbox"> Kỹ năng sống</label>
+                            <label class="checkbox-item"><input type="checkbox"> Công nghệ thông tin</label>
+                            <label class="checkbox-item"><input type="checkbox"> Lịch sử</label>
+                            
+                            <label style="display:block; margin-top:15px">Ý kiến khác:</label>
+                            <textarea placeholder="Nhập ý kiến của bạn..."></textarea>
+                            
+                            <button type="submit" class="btn-neon">GỬI Ý KIẾN NGAY</button>
+                        </form>
                     </div>
                 </div>`;
             }
 
             v.innerHTML = nd + '<div class="footer">© 2026 - Nhóm 7 THPT Ngô Quyền | Lớp 12A9</div>';
+        }
+
+        function guiGopY(event) {
+            event.preventDefault();
+            document.getElementById("vung_hien_thi").innerHTML = `
+                <div class="glow-box" style="text-align:center; padding-top:50px;">
+                    <h1 style="border:none; color:#00f5ff">CẢM ƠN BẠN!</h1>
+                    <div class="card">
+                        <p style="font-size:18px">Ý kiến của bạn đã được gửi thành công đến Ban quản lý thư viện.</p>
+                        <button class="btn-neon" style="width:200px; margin-top:20px" onclick="hienNoiDung('gopy')">GỬI THÊM Ý KIẾN</button>
+                    </div>
+                </div>
+            `;
         }
     </script>
 </body>
