@@ -38,26 +38,34 @@
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         .card { background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 12px; border: 1px solid #222; margin-bottom: 20px; }
-        h1 { color: #00f5ff; text-transform: uppercase; margin-bottom: 20px; border-left: 5px solid #ff0000; padding-left: 15px; }
+        h1 { color: #00f5ff; text-transform: uppercase; margin-bottom: 20px; border-left: 5px solid #ff0000; padding-left: 15px; text-shadow: 0 0 10px rgba(0, 245, 255, 0.3); }
         h2 { color: #00f5ff; font-size: 20px; margin-bottom: 10px; }
-        h3 { color: #00f5ff; margin: 15px 0; border-bottom: 1px solid #333; padding-bottom: 5px; }
+        h3 { color: #ff0000; font-size: 16px; margin: 20px 0 10px 0; border-left: 4px solid #ff0000; padding-left: 10px; }
 
         /* Style Form */
-        label { display: block; margin-bottom: 5px; color: #bbb; }
+        label { display: block; margin-bottom: 5px; color: #bbb; font-size: 14px; }
         input[type="text"], input[type="email"], textarea {
-            width: 100%; padding: 10px; background: #222; border: 1px solid #444; 
-            color: white; border-radius: 5px; margin-bottom: 15px;
+            width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; 
+            color: white; border-radius: 8px; margin-bottom: 15px; outline: none; transition: 0.3s;
         }
-        .checkbox-item { display: flex; align-items: center; margin-bottom: 8px; cursor: pointer; color: #888; }
-        .checkbox-item input { margin-right: 10px; }
+        input:focus, textarea:focus { border-color: #00f5ff; box-shadow: 0 0 8px rgba(0, 245, 255, 0.2); }
+        
+        .checkbox-group { 
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px; 
+            margin-bottom: 20px; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px;
+        }
+        .checkbox-item { display: flex; align-items: center; cursor: pointer; color: #ddd; font-size: 14px; }
+        .checkbox-item input { margin-right: 10px; accent-color: #00f5ff; }
         
         .btn-neon {
             width: 100%; padding: 12px; background: transparent; border: 2px solid #00f5ff; 
-            color: #00f5ff; font-weight: bold; cursor: pointer; transition: 0.3s; text-transform: uppercase;
+            color: #00f5ff; font-weight: bold; cursor: pointer; transition: 0.4s; text-transform: uppercase;
+            border-radius: 8px;
         }
         .btn-neon:hover { background: #00f5ff; color: #000; box-shadow: 0 0 20px #00f5ff; }
 
         .footer { margin-top: 40px; font-size: 12px; color: #444; text-align: right; border-top: 1px solid #222; padding-top: 15px; }
+        .success-icon { font-size: 50px; color: #00f5ff; margin-bottom: 20px; text-align: center; }
     </style>
 </head>
 <body>
@@ -100,7 +108,6 @@
             else if (phan === 'tkb') {
                 nd = `<div class="glow-box"><h1>THỜI KHÓA BIỂU</h1><div class="card">Dữ liệu thời khóa biểu...</div></div>`;
             }
-            // --- FORM ĐĂNG KÝ HỘI THAO ---
             else if (phan === 'hoithao') {
                 nd = `
                 <div class="glow-box">
@@ -126,18 +133,35 @@
                     </div>
                 </div>`;
             }
-            // --- FORM GÓP Ý THƯ VIỆN ---
+            // --- ĐOẠN CODE GÓP Ý THƯ VIỆN MỚI ĐÃ THAY THẾ ---
             else if (phan === 'gopy') {
                 nd = `
                 <div class="glow-box">
-                    <h1>GÓP Ý THƯ VIỆN</h1>
+                    <h1>Góp ý Thư viện</h1>
                     <div class="card">
                         <form onsubmit="xuLyGopY(event)">
+                            <h3>1. Thông tin cá nhân</h3>
                             <label>Họ và tên:</label>
-                            <input type="text" required>
-                            <label>Nội dung góp ý:</label>
-                            <textarea placeholder="Nhập ý kiến của bạn..."></textarea>
-                            <button type="submit" class="btn-neon">GỬI GÓP Ý</button>
+                            <input type="text" required placeholder="Nhập tên của bạn...">
+                            
+                            <label>Địa chỉ Email:</label>
+                            <input type="email" required placeholder="example@gmail.com">
+
+                            <h3>2. Nội dung đóng góp</h3>
+                            <label style="margin-bottom: 10px; color: #00f5ff;">Thể loại sách cần bổ sung:</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox"> Truyện ngắn</label>
+                                <label class="checkbox-item"><input type="checkbox"> Kỹ năng sống</label>
+                                <label class="checkbox-item"><input type="checkbox"> Công nghệ (Tin)</label>
+                                <label class="checkbox-item"><input type="checkbox"> Truyện tranh</label>
+                                <label class="checkbox-item"><input type="checkbox"> Lịch sử</label>
+                                <label class="checkbox-item"><input type="checkbox"> Ngoại ngữ</label>
+                            </div>
+
+                            <label>Ý kiến đóng góp khác:</label>
+                            <textarea placeholder="Bạn muốn thay đổi điều gì ở thư viện?"></textarea>
+
+                            <button type="submit" class="btn-neon">Gửi ý kiến ngay</button>
                         </form>
                     </div>
                 </div>`;
@@ -146,27 +170,29 @@
             v.innerHTML = nd + '<div class="footer">© 2026 - Nhóm 7 THPT Ngô Quyền | Lớp 12A9</div>';
         }
 
-        // Xử lý phản hồi Hội Thao
         function xuLyHoiThao(event) {
             event.preventDefault();
             document.getElementById("vung_hien_thi").innerHTML = `
                 <div class="glow-box" style="text-align:center; padding-top:50px;">
                     <h1 style="border:none; color:#00f5ff">CẢM ƠN BẠN ĐÃ PHẢN HỒI!</h1>
                     <div class="card">
-                        <p>Thông tin đăng ký hội thao của bạn đã được ghi nhận thành công. </p>
+                        <p>Thông tin đăng ký hội thao của bạn đã được ghi nhận thành công. 🥇</p>
                         <button class="btn-neon" style="width:200px; margin-top:20px" onclick="hienNoiDung('hoithao')">QUAY LẠI</button>
                     </div>
                 </div>`;
         }
 
-        // Xử lý phản hồi Góp Ý
         function xuLyGopY(event) {
             event.preventDefault();
             document.getElementById("vung_hien_thi").innerHTML = `
-                <div class="glow-box" style="text-align:center; padding-top:50px;">
+                <div class="glow-box" style="text-align:center; padding-top:30px;">
+                    <div class="success-icon">✔</div>
                     <h1 style="border:none; color:#00f5ff">CẢM ƠN BẠN ĐÃ GÓP Ý!</h1>
                     <div class="card">
-                        <p>Chúng tôi đã nhận được ý kiến của bạn và sẽ cải thiện thư viện tốt hơn.</p>
+                        <p style="color: #bbb; line-height: 1.6;">
+                            Ý kiến của bạn đã được ghi nhận thành công.<br>
+                            Chúng tôi sẽ xem xét và cải tiến thư viện sớm nhất.
+                        </p>
                         <button class="btn-neon" style="width:200px; margin-top:20px" onclick="hienNoiDung('gopy')">QUAY LẠI</button>
                     </div>
                 </div>`;
