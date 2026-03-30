@@ -1,121 +1,172 @@
-
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hệ thống Đóng góp ý kiến</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góp ý Thư viện - Nhóm 7</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Container chính cho Form */
-        .container {
-            width: 450px;
-            border: 1px solid #ccc;
-            padding: 20px;
-            background: white;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-        }
-
-        /* Hộp thông báo cảm ơn (ẩn mặc định) */
-        .message-box {
-            display: none; /* Ẩn đi lúc đầu */
-            border: 1px solid #3498db;
-            padding: 30px;
-            max-width: 600px;
-            background: white;
-            animation: fadeIn 0.5s;
-        }
-
-        h2 { text-align: center; color: #333; }
-        h3 { color: #555; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-
-        /* Style form nhập liệu */
-        input[type="text"], input[type="email"], textarea {
-            width: 100%;
-            margin: 5px 0 15px 0;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        textarea { height: 100px; }
-
-        .checkbox-group { margin-bottom: 15px; padding: 10px; background: #fff; }
-        .checkbox-item { display: flex; align-items: center; margin-bottom: 8px; cursor: pointer; }
-        .checkbox-item input { width: auto; margin: 0 10px 0 0; }
+        /* --- STYLE HỆ NEON DARK --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
         
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #f0f0f0;
-            border: 1px solid #999;
-            cursor: pointer;
-            font-weight: bold;
+        body { 
+            background: radial-gradient(circle at center, #1a1a2e, #0f0c29); 
+            color: white; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container { 
+            background: #111; 
+            width: 100%; 
+            max-width: 550px; 
+            padding: 35px; 
+            border-radius: 20px; 
+            border: 1px solid #222; 
+            box-shadow: 0 0 40px rgba(0, 245, 255, 0.15);
+            animation: slideIn 0.6s ease-out;
+        }
+
+        h1 { 
+            color: #00f5ff; 
+            text-align: center; 
+            margin-bottom: 30px; 
+            text-transform: uppercase;
+            font-size: 22px;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+        }
+
+        h3 { 
+            color: #ff0000; 
+            font-size: 16px; 
+            margin: 20px 0 10px 0; 
+            border-left: 4px solid #ff0000; 
+            padding-left: 10px; 
+        }
+
+        label { display: block; margin-bottom: 8px; color: #bbb; font-size: 14px; }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%; 
+            padding: 12px; 
+            background: #1a1a1a; 
+            border: 1px solid #333; 
+            color: white; 
+            border-radius: 8px; 
+            margin-bottom: 15px;
+            outline: none;
             transition: 0.3s;
         }
-        button:hover { background-color: #e0e0e0; border-color: #333; }
 
-        p { color: #555; line-height: 1.6; }
+        input:focus, textarea:focus { 
+            border-color: #00f5ff; 
+            box-shadow: 0 0 8px rgba(0, 245, 255, 0.2); 
+        }
 
-        /* Hiệu ứng xuất hiện mượt mà */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
+        textarea { height: 100px; resize: none; }
+
+        /* Checkbox Style */
+        .checkbox-group { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 10px; 
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.02);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .checkbox-item { 
+            display: flex; 
+            align-items: center; 
+            cursor: pointer; 
+            color: #ddd; 
+            font-size: 14px; 
+        }
+
+        .checkbox-item input { margin-right: 10px; accent-color: #00f5ff; }
+
+        .btn-submit {
+            width: 100%; 
+            padding: 15px; 
+            background: transparent; 
+            border: 2px solid #00f5ff; 
+            color: #00f5ff; 
+            font-weight: bold; 
+            cursor: pointer; 
+            text-transform: uppercase;
+            transition: 0.4s;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover { 
+            background: #00f5ff; 
+            color: #000; 
+            box-shadow: 0 0 25px #00f5ff; 
+        }
+
+        /* --- TRANG CẢM ƠN --- */
+        #thankYouArea { display: none; text-align: center; }
+        .success-icon { font-size: 50px; color: #00f5ff; margin-bottom: 20px; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <div class="container" id="formPage">
-        <h2>Đóng góp ý kiến cho thư viện của nhà trường</h2>
+    <div class="container" id="mainContainer">
+        <div id="formArea">
+            <h1>Góp ý Thư viện</h1>
+            <form onsubmit="sendFeedback(event)">
+                <h3>1. Thông tin cá nhân</h3>
+                <label>Họ và tên:</label>
+                <input type="text" required placeholder="Nhập tên của bạn...">
+                
+                <label>Địa chỉ Email:</label>
+                <input type="email" required placeholder="example@gmail.com">
 
-        <form id="feedbackForm" onsubmit="handleFormSubmit(event)">
-            <h3>1. Thông tin về người góp ý</h3>
-            <label>Họ và tên:</label>
-            <input type="text" name="hoten" required placeholder="Nguyễn Văn A">
+                <h3>2. Nội dung đóng góp</h3>
+                <label style="margin-bottom: 10px; color: #00f5ff;">Thể loại sách cần bổ sung:</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox"> Truyện ngắn</label>
+                    <label class="checkbox-item"><input type="checkbox"> Kỹ năng sống</label>
+                    <label class="checkbox-item"><input type="checkbox"> Công nghệ (Tin)</label>
+                    <label class="checkbox-item"><input type="checkbox"> Truyện tranh</label>
+                    <label class="checkbox-item"><input type="checkbox"> Lịch sử</label>
+                    <label class="checkbox-item"><input type="checkbox"> Ngoại ngữ</label>
+                </div>
 
-            <label>Địa chỉ email:</label>
-            <input type="email" name="email" required placeholder="email@vi-du.com">
+                <label>Ý kiến đóng góp khác:</label>
+                <textarea placeholder="Bạn muốn thay đổi điều gì ở thư viện?"></textarea>
 
-            <h3>2. Đóng góp ý kiến</h3>
-            
-            <label><strong>Thể loại cần bổ sung thêm sách:</strong></label>
-            <div class="checkbox-group">
-                <label class="checkbox-item"><input type="checkbox" name="theloai" value="truyen-ngan"> Truyện ngắn</label>
-                <label class="checkbox-item"><input type="checkbox" name="theloai" value="ky-nang-song"> Kỹ năng sống</label>
-                <label class="checkbox-item"><input type="checkbox" name="theloai" value="cntt"> Công nghệ thông tin</label>
-                <label class="checkbox-item"><input type="checkbox" name="theloai" value="truyen-tranh"> Truyện tranh</label>
-                <label class="checkbox-item"><input type="checkbox" name="theloai" value="lich-su"> Lịch sử</label>
-            </div>
+                <button type="submit" class="btn-submit">Gửi ý kiến ngay</button>
+            </form>
+        </div>
 
-            <label>Ý kiến đóng góp khác:</label>
-            <textarea name="ykien" placeholder="Nhập ý kiến của bạn..."></textarea>
-
-            <button type="submit">Góp ý</button>
-        </form>
-    </div>
-
-    <div class="message-box" id="thankYouPage">
-        <h2 style="text-align: left;">Cảm ơn bạn đã góp ý kiến</h2>
-        <p>Chúng tôi xin ghi nhận ý kiến của bạn và sẽ cải tiến, nâng cao chất lượng phục vụ hơn nữa trong thời gian sắp tới.</p>
-        <button onclick="window.location.reload()" style="width: auto; margin-top: 15px;">Quay lại</button>
+        <div id="thankYouArea">
+            <div class="success-icon">✔</div>
+            <h1>CẢM ƠN BẠN!</h1>
+            <p style="color: #bbb; line-height: 1.6; margin-bottom: 25px;">
+                Ý kiến đóng góp của bạn đã được hệ thống ghi nhận thành công.<br>
+                Chúng tôi sẽ xem xét và cải tiến chất lượng thư viện trong thời gian sớm nhất.
+            </p>
+            <button class="btn-submit" onclick="location.reload()" style="width: auto; padding: 10px 30px;">Quay lại</button>
+        </div>
     </div>
 
     <script>
-        function handleFormSubmit(event) {
-            // Ngăn chặn trang web tải lại theo cách mặc định
-            event.preventDefault();
-
-            // Ẩn trang Form
-            document.getElementById('formPage').style.display = 'none';
-
-            // Hiện trang Cảm ơn
-            document.getElementById('thankYouPage').style.display = 'block';
+        function sendFeedback(event) {
+            event.preventDefault(); // Ngăn load lại trang
+            
+            // Hiệu ứng chuyển đổi nội dung
+            document.getElementById('formArea').style.display = 'none';
+            document.getElementById('thankYouArea').style.display = 'block';
         }
     </script>
 
